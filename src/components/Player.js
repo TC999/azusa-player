@@ -6,6 +6,10 @@ import { FavList } from '../components/FavList'
 import { BiliBiliIcon } from "./bilibiliIcon";
 import { LyricOverlay } from './LyricOverlay'
 import StorageManagerCtx from '../popup/App'
+import { useTheme } from '../popup/ThemeContext'
+import IconButton from '@mui/material/IconButton';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 // Initial Player options
 const options = {
@@ -35,6 +39,8 @@ export const Player = function ({ songList }) {
     const [playerSettings, setPlayerSettings] = useState(null)
     // Sync data to chromeDB
     const StorageManager = useContext(StorageManagerCtx)
+    // Theme context
+    const { toggleDarkMode, isDarkMode } = useTheme()
 
     const updateCurrentAudioList = useCallback(({ songs, immediatePlay = false, replaceList = false }) => {
         //console.log("updateCurrentAudioList", params)
@@ -234,6 +240,21 @@ export const Player = function ({ songList }) {
 
             {params &&
                 <React.Fragment>
+                    <Box // Theme toggle button
+                        position="absolute"
+                        top="10px"
+                        right="10px"
+                        zIndex="9999"
+                    >
+                        <IconButton
+                            onClick={toggleDarkMode}
+                            color="inherit"
+                            aria-label={isDarkMode ? "切换到浅色模式" : "切换到深色模式"}
+                            size="small"
+                        >
+                            {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+                        </IconButton>
+                    </Box>
                     <Box // Bottom Grid -- Footer
                         display="flex"
                         flex="1"

@@ -5,17 +5,14 @@ import Dialog from '@mui/material/Dialog';
 import IconButton from '@mui/material/IconButton';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Slide from '@mui/material/Slide';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import { useTheme } from '../popup/ThemeContext';
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const theme = {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-  };
-
 export const LyricOverlay = memo(function ({ showLyric, currentTime, audioName, audioId, audioCover, artist = "" }) {
     const [open, setOpen] = useState(true);
+    const { isDarkMode } = useTheme();
 
     useEffect(() => {
         setOpen(!open)
@@ -33,11 +30,13 @@ export const LyricOverlay = memo(function ({ showLyric, currentTime, audioName, 
                 onClose={handleClose}
                 hideBackdrop
                 TransitionComponent={Transition}
-                PaperProps={{
+                PaperProps={{            
                     style: {
                         backgroundImage: 'url(' + audioCover + ')',
                         backgroundSize: 'cover',
                         boxShadow: 'none',
+                        // 在深色模式下增加亮度滤镜，使背景图片更清晰
+                        filter: isDarkMode ? 'brightness(0.7)' : 'none',
                     },
                 }}
             >

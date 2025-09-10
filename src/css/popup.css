@@ -3,6 +3,35 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background-color: var(--theme-background);
+  color: var(--theme-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 定义CSS变量默认值 */
+:root {
+  --is-dark-mode: false;
+  --theme-primary: #ab5fff;
+  --theme-background: rgba(255, 255, 255, 0.5);
+  --theme-text: #333333;
+  --theme-sidebar: rgba(255, 255, 255, 0.8);
+  --theme-card: rgba(255, 255, 255, 0.7);
+  --theme-blur-background: rgba(255, 255, 255, 0.5);
+  --theme-slider-rail: #e9e9e9;
+  --theme-slider-handle: #fff;
+}
+
+/* 深色模式样式 */
+.dark-mode {
+  --is-dark-mode: true;
+  --theme-primary: #9b51e0;
+  --theme-background: rgba(30, 30, 30, 0.9);
+  --theme-text: #f0f0f0;
+  --theme-sidebar: rgba(40, 40, 40, 0.9);
+  --theme-card: rgba(50, 50, 50, 0.8);
+  --theme-blur-background: rgba(40, 40, 40, 0.7);
+  --theme-slider-rail: #444;
+  --theme-slider-handle: #333;
 }
 
 /* #app-container {
@@ -47,6 +76,7 @@ body {
 #FavTable {
   box-shadow: -4px 5px 6px 2px rgb(166 88 249 / 20%),
     4px -3px 2px 0px rgb(166 88 249 / 20%), 1px 1px 0px 2px rgb(0 0 0 / 12%);
+  background-color: var(--theme-card);
 }
 
 #LrcImg {
@@ -59,6 +89,6 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--theme-blur-background);
   backdrop-filter: blur(35px);
 }

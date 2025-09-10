@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback, memo, useContext } from "react";
 import { Search } from '../components/Search'
 import { Fav } from './Fav'
-import { ScrollBar } from "../styles/styles";
+import { ScrollBar, ThemeAwareCard } from "../styles/styles";
 import { AlertDialog } from "./ConfirmDialog"
 import { AddFavDialog, NewFavDialog, HelpDialog } from "./AddFavDialog"
 import StorageManagerCtx from '../popup/App'
@@ -65,6 +65,7 @@ const DiskIcon = {
 }
 
 export const FavList = memo(function ({ onSongListChange, onPlayOneFromFav, onPlayAllFromFav, onAddFavToList, onAddOneFromFav }) {
+    const themeAwareCard = ThemeAwareCard();
     const [favLists, setFavLists] = useState(null)
     const [selectedList, setSelectedList] = useState(null)
     const [openDeleteDialog, setOpenDeleteDialog] = useState(false)

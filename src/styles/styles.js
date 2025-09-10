@@ -14,7 +14,7 @@ export const ScrollBar = makeStyles((theme) => ({
             backgroundClip: "padding-box",
             borderRadius: "7px",
             "-webkit-border-radius": "7px",
-            backgroundColor: "#c6acfc"
+            backgroundColor: "var(--theme-primary)"
         },
     },
 }));
@@ -25,4 +25,20 @@ export const btnActiveStyle = makeStyles((theme) => ({
             background: '#e6e6e694',
         },
     },
-}))
+}));
+
+export const ThemeAwareBox = makeStyles((theme) => ({
+    root: {
+        backgroundColor: 'var(--theme-background)',
+        color: 'var(--theme-text)',
+        transition: 'background-color 0.3s, color 0.3s',
+    },
+}));
+
+export const ThemeAwareCard = makeStyles((theme) => ({
+    root: {
+        backgroundColor: 'var(--theme-card)',
+        color: 'var(--theme-text)',
+        transition: 'background-color 0.3s, color 0.3s',
+    },
+}));

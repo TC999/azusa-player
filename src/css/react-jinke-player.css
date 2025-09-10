@@ -12,7 +12,7 @@
   box-sizing: border-box;
 }
 .rc-slider-rail {
-  background-color: #e9e9e9;
+  background-color: var(--theme-slider-rail);
   width: 100%;
 }
 .rc-slider-rail,
@@ -22,12 +22,12 @@
   position: absolute;
 }
 .rc-slider-track {
-  background-color: #abe2fb;
+  background-color: var(--theme-primary);
   left: 0;
 }
 .rc-slider-handle {
-  background-color: #fff;
-  border: 2px solid #96dbfa;
+  background-color: var(--theme-slider-handle);
+  border: 2px solid var(--theme-primary);
   border-radius: 50%;
   cursor: pointer;
   cursor: -webkit-grab;
