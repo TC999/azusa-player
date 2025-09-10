@@ -11,11 +11,11 @@ const Transition = forwardRef(function Transition(props, ref) {
 });
 
 export const LyricOverlay = memo(function ({ showLyric, currentTime, audioName, audioId, audioCover, artist = "" }) {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(showLyric);
     const { isDarkMode } = useTheme();
 
     useEffect(() => {
-        setOpen(!open)
+        setOpen(showLyric);
     }, [showLyric])
 
     const handleClose = () => {
