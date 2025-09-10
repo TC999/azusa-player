@@ -248,9 +248,15 @@ export const Player = function ({ songList }) {
                     >
                         <IconButton
                             onClick={toggleDarkMode}
-                            color="inherit"
                             aria-label={isDarkMode ? "切换到浅色模式" : "切换到深色模式"}
                             size="small"
+                            sx={{
+                                color: isDarkMode ? '#fff' : '#333',
+                                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.2)'
+                                }
+                            }}
                         >
                             {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
                         </IconButton>

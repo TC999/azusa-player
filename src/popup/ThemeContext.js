@@ -52,6 +52,13 @@ export const ThemeProvider = ({ children }) => {
     Object.entries(colors).forEach(([key, value]) => {
       root.style.setProperty(`--theme-${key}`, value);
     });
+    
+    // 添加或移除dark-mode类
+    if (settings.isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
   };
 
   const contextValue = {
