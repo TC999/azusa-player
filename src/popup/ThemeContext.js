@@ -45,18 +45,20 @@ export const ThemeProvider = ({ children }) => {
   const applyThemeToDOM = (settings) => {
     const root = document.documentElement;
     
-    // 设置CSS变量表示是否为深色模式
+    // 设置CSS变量
     root.style.setProperty('--is-dark-mode', settings.isDarkMode ? 'true' : 'false');
     
-    // 直接设置所有主题颜色变量
     const colors = settings.colors[settings.isDarkMode ? 'dark' : 'light'];
     Object.entries(colors).forEach(([key, value]) => {
       root.style.setProperty(`--theme-${key}`, value);
     });
     
-    // 也应用到body元素上
-    document.body.style.backgroundColor = colors.background;
-    document.body.style.color = colors.text;
+    // 添加或移除dark-mode类
+    if (settings.isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
   };
 
   const contextValue = {

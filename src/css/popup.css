@@ -21,7 +21,18 @@ body {
   --theme-slider-handle: #fff;
 }
 
-/* 深色模式的CSS变量现在通过JavaScript直接设置，不再使用CSS类 */
+/* 深色模式样式 */
+.dark-mode {
+  --is-dark-mode: true;
+  --theme-primary: #9b51e0;
+  --theme-background: rgba(30, 30, 30, 0.9);
+  --theme-text: #f0f0f0;
+  --theme-sidebar: rgba(40, 40, 40, 0.9);
+  --theme-card: rgba(50, 50, 50, 0.8);
+  --theme-blur-background: rgba(40, 40, 40, 0.7);
+  --theme-slider-rail: #444;
+  --theme-slider-handle: #333;
+}
 
 /* #app-container {
   background: radial-gradient(#e3daff54, #32156a57)
